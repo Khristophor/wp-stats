@@ -1,0 +1,40 @@
+{
+    "name": "vendor-name/wordpress-stats",
+    "description": "This is a short description of what the plugin does.",
+    "type": "wordpress-plugin",
+    "keywords": ["wordpress", "plugin"],
+    "homepage": "https://github.com/khristophor/wordpress-stats/",
+    "license": "GPL-2.0+",
+    "authors": [
+      {
+          "name": "Chris Wiseman",
+          "email": "khristophor@github.io",
+          "homepage": "https://github.com/khristophor/wordpress-stats/"
+      }
+    ],
+    "support": {
+        "issues": "https://github.com/khristophor/wordpress-stats/",
+        "source": "https://github.com/khristophor/wordpress-stats/"
+    },
+    "autoload": {
+        "psr-4": {
+            "Khristophor\\Wordpress_Stats\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Khristophor\\Tests\\Wordpress_Stats\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "composer/installers": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.7.0",
+        "squizlabs/php_codesniffer": "2.8.1",
+        "wp-coding-standards/wpcs": "0.*",
+        "10up/wp_mock": "dev-dev"
+    },
+    "suggest": {}
+}
