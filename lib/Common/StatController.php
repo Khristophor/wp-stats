@@ -4,7 +4,28 @@ namespace Khristophor\Wordpress_Stats\Common;
 
 use Khristophor\Wordpress_Stats\Plugin;
 
+/**
+ * Custom REST routes to make data retrieval easier.
+ *
+ * Adds two custom routes under /wp-json/cw/v1/, one for counts
+ * to return total number of posts, pages and users on the site
+ * and one for leaders, to return top category, tag and post by
+ * popularity.
+ *
+ * @package    WordpressStats
+ * @subpackage WordpressStats/Common
+ * @author     Chris Wiseman <khristophor@github.io>
+ */
 class StatController extends \WP_REST_Controller {
+
+	/**
+	 * The plugin's instance.
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @var    Plugin $plugin This plugin's instance.
+	 */
+	private $plugin;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -141,7 +162,6 @@ class StatController extends \WP_REST_Controller {
 					'post_title' => $post->post_title,
 					'comment_count' => $post->comment_count,
 				);
-
 			}
 			wp_reset_postdata();
 		}
