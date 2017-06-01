@@ -12,8 +12,8 @@ Registers a widget to display statistics about the current WordPress environment
 
 ### Installation
 
-Clone the repo down
-Run `composer install`
-Run `docker-compose up -d` (if running docker)
+- Clone the repo down
+- Run `composer install`
+- Run `docker-compose up -d` (if running docker)
 
 That's it!
