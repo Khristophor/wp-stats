@@ -66,12 +66,31 @@ class StatWidget extends \WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		$title = \apply_filters( 'widget_title', $instance['title'] );
-		$blog_title = \get_bloginfo( 'name' );
-		$tagline = \get_bloginfo( 'description' );
-		echo esc_attr( $args['before_widget'] ) . esc_attr( $args['before_title'] ) . esc_attr( $title ) . esc_attr( $args['after_title'] ); ?>
-		<p><strong>Site Name:</strong> <?php echo esc_attr( $blog_title ); ?></p>
-		<p><strong>Tagline:</strong> <?php echo esc_attr( $tagline ); ?></p>
-		<?php echo esc_attr( $args['after_widget'] );
+	/**
+	 * Call custom REST endpoints registered to Common\StatController and collect
+	 * statistics.
+	 *
+	 * @since 1.0.0
+	 */
+	protected function collect_stats() {
+
+		$counts_endpoint = \get_home_url() . '/wp-json/cw/v1/counts';
+		$leaders_endpoint = \get_home_url() . '/wp-json/cw/v1/leaders';
+
+		$stats = array();
+
+		$response = wp_remote_get( $counts_endpoint );
+		if ( is_array( $response ) ) {
+			$stats = array_merge( $stats, json_decode( $response['body'], true ) );
+		}
+
+		$response = wp_remote_get( $leaders_endpoint );
+		if ( is_array( $response ) ) {
+			$stats = array_merge( $stats, json_decode( $response['body'], true ) );
+		}
+
+		return $stats;
+
 	}
 
 }
