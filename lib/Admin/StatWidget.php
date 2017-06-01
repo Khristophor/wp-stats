@@ -26,7 +26,7 @@ class StatWidget extends \WP_Widget {
 			'classname' => 'cw_wordpress_stats',
 			'description' => __( 'This widget displays statistics about the WordPress site.', 'wordpress-stats' ),
 		);
-		parent::__construct( 'cw_wordpress_stats', 'WordPress Stats', $widget_options );
+		parent::__construct( 'cw_wordpress_stats', __( 'WordPress Stats', 'wordpress-stats' ), $widget_options );
 
 	}
 
@@ -39,6 +39,24 @@ class StatWidget extends \WP_Widget {
 
 		\register_widget( $this );
 
+	}
+
+	/**
+	 * Build widget output.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $args set by the active theme when the sidebar region is registered
+	 * @param array $instance values associated with the current instance of the widget
+	 */
+	public function widget( $args, $instance ) {
+		$title = \apply_filters( 'widget_title', $instance['title'] );
+		$blog_title = \get_bloginfo( 'name' );
+		$tagline = \get_bloginfo( 'description' );
+		echo esc_attr( $args['before_widget'] ) . esc_attr( $args['before_title'] ) . esc_attr( $title ) . esc_attr( $args['after_title'] ); ?>
+		<p><strong>Site Name:</strong> <?php echo esc_attr( $blog_title ); ?></p>
+		<p><strong>Tagline:</strong> <?php echo esc_attr( $tagline ); ?></p>
+		<?php echo esc_attr( $args['after_widget'] );
 	}
 
 }
