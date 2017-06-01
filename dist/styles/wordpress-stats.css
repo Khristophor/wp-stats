@@ -1,0 +1,15 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+.widget.cw_wordpress_stats > p {
+    margin: 0 0 0.5em;
+}
+
+.widget.cw_wordpress_stats > p.aside {
+    color: #767676;
+    font-size: 0.65rem;
+    font-style: italic;
+    margin-left: 1em;
+}
