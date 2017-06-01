@@ -42,6 +42,21 @@ class StatWidget extends \WP_Widget {
 	}
 
 	/**
+	 * Add form to Widgets menu for basic settings.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $instance values associated with the current instance of the widget
+	 */
+	public function form( $instance ) {
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : ''; ?>
+		<p>
+		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">Title:</label>
+		<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $title ); ?>" />
+		</p><?php
+	}
+
+	/**
 	 * Build widget output.
 	 *
 	 * @since 1.0.0
