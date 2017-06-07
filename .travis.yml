@@ -25,6 +25,8 @@ matrix:
     - php: 7.0
       env: WP_TRAVISCI=phpcs
 
+install: composer install --no-dev
+
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
