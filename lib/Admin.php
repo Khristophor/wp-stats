@@ -7,10 +7,10 @@
  * @since      1.0.0
  *
  * @package    WordpressStats
- * @subpackage WordpressStats/admin
+ * @subpackage WordpressStats/Admin
  */
 
-namespace Khristophor\Wordpress_Stats;
+namespace WordpressStats;
 
 /**
  * The dashboard-specific functionality of the plugin.
@@ -19,7 +19,7 @@ namespace Khristophor\Wordpress_Stats;
  * enqueue the dashboard-specific stylesheet and JavaScript.
  *
  * @package    WordpressStats
- * @subpackage WordpressStats/admin
+ * @subpackage WordpressStats/Admin
  * @author     Chris Wiseman <khristophor@github.io>
  */
 class Admin {
@@ -42,6 +42,17 @@ class Admin {
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
+	}
+
+	/**
+	 * Register any widgets to the Administration area.
+	 *
+	 * @since    1.0.0
+	 */
+	public function register_widgets() {
+
+		( new Admin\StatWidget() )->register();
+
 	}
 
 	/**

@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Khristophor\\Wordpress_Stats\\": "lib/"
+            "WordpressStats\\": "lib/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Khristophor\\Tests\\Wordpress_Stats\\": "tests/"
+            "Tests\\WordpressStats\\": "tests/"
         }
     },
     "require": {

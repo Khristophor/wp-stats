@@ -38,13 +38,13 @@ if ( ! defined( 'WPINC' ) ) {
  * The code that runs during plugin activation.
  * This action is documented in lib/Activator.php
  */
-\register_activation_hook( __FILE__, '\Khristophor\Wordpress_Stats\Activator::activate' );
+\register_activation_hook( __FILE__, '\WordpressStats\Activator::activate' );
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in lib/Deactivator.php
  */
-\register_deactivation_hook( __FILE__, '\Khristophor\Wordpress_Stats\Deactivator::deactivate' );
+\register_deactivation_hook( __FILE__, '\WordpressStats\Deactivator::deactivate' );
 
 /**
  * Begins execution of the plugin.
@@ -52,6 +52,6 @@ if ( ! defined( 'WPINC' ) ) {
  * @since    1.0.0
  */
 \add_action( 'plugins_loaded', function () {
-	$plugin = new \Khristophor\Wordpress_Stats\Plugin();
+	$plugin = new \WordpressStats\Plugin();
 	$plugin->run();
 } );

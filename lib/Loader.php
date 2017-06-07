@@ -10,7 +10,7 @@
  * @subpackage WordpressStats/includes
  */
 
-namespace Khristophor\Wordpress_Stats;
+namespace WordpressStats;
 
 /**
  * Register all actions and filters for the plugin.
@@ -104,7 +104,7 @@ class Loader {
 			'component'     => $component,
 			'callback'      => $callback,
 			'priority'      => $priority,
-			'accepted_args' => $accepted_args
+			'accepted_args' => $accepted_args,
 		);
 
 		return $hooks;
