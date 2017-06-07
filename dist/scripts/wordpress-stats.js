@@ -1,32 +1,35 @@
 (function( $ ) {
 	'use strict';
 
-	/**
-	 * All of the code for your public-facing JavaScript source
-	 * should reside in this file.
-	 *
-	 * Note that this assume you're going to use jQuery, so it prepares
-	 * the $ function reference to be used within the scope of this
-	 * function.
-	 *
-	 * From here, you're able to define handlers for when the DOM is
-	 * ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * Or when the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 *
-	 * ...and so on.
-	 *
-	 * Remember that ideally, we should not attach any more than a single DOM-ready or window-load handler
-	 * for any particular page. Though other scripts in WordPress core, other plugins, and other themes may
-	 * be doing this, we should try to minimize doing that in our own work.
-	 */
+	function getStats() {
+		$.ajax( {
+			url: window.location.pathname + 'wp-json/cw/v1/stats',
+		} )
+			.done( function ( data ) {
+				var countHtml = '';
+				var popularHtml = '';
+				$.each( data, function ( index, stat ) {
+					if( stat.type === 'count' ) {
+						countHtml += '<p><strong>' + stat.label + ':</strong> ' + stat.value + '</p>' + "\n";
+					}
+					if( stat.type === 'popular' ) {
+						popularHtml += '<p><strong>' + stat.label + ':</strong> <a href="' + stat.url + '">' + stat.value + '</a></p>' + "\n";
+						if( stat.tagline.length > 0 ) {
+							popularHtml += '<p class="aside">' + stat.tagline + '</p>';
+						}
+					}
+				} );
+				if( countHtml.length > 0 ) {
+					$( '.stat-count' ).html( countHtml );
+				}
+				if( popularHtml.length > 0 ) {
+					$( '.stat-popular' ).html( popularHtml );
+				}
+			} );
+	}
+
+	$( window ).on( 'load', function() {
+		window.setInterval( getStats, 5000 );
+	});
 
 })( jQuery );
