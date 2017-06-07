@@ -79,7 +79,9 @@ class StatTest extends WP_UnitTestCase {
 	 */
 	function test_should_return_proper_popular_statistic() {
 
-		$this->factory->category->create_many( 12 );
+		$this->factory->post->create_many( 10 );
+		$this->factory->category->create_many( 5 );
+		\delete_option( 'category_children' );
 
 		$content = array( 'category' );
 		$label = 'Category';
