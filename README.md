@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Khristophor/wp-stats.svg?branch=master)](https://travis-ci.org/Khristophor/wp-stats)
 ## WordPress Stats
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
