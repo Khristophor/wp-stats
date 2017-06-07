@@ -29,7 +29,7 @@
 	}
 
 	$( window ).on( 'load', function() {
-		window.setInterval( getStats, 5000 );
+		window.setInterval( getStats, 60000 );
 	});
 
 })( jQuery );
