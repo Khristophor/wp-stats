@@ -10,7 +10,7 @@
  * @subpackage WordpressStats/includes
  */
 
-namespace Khristophor\Wordpress_Stats;
+namespace WordpressStats;
 
 /**
  * Register all actions and filters for the plugin.

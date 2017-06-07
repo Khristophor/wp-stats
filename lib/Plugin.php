@@ -13,7 +13,7 @@
  * @subpackage WordpressStats/includes
  */
 
-namespace Khristophor\Wordpress_Stats;
+namespace WordpressStats;
 
 /**
  * The core plugin class.

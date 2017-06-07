@@ -7,7 +7,7 @@
  * @author     Chris Wiseman <khristophor@github.io>
  */
 
-use Khristophor\Wordpress_Stats\Common\Stat;
+use WordpressStats\Common\Stat;
 
 /**
  * Unit tests for Stat class methods.
@@ -19,7 +19,7 @@ class StatTest extends WP_UnitTestCase {
 	 */
 
 	/**
-	 * @covers Khristophor\Wordpress_Stats\Common\Stat::__construct()
+	 * @covers WordpressStats\Common\Stat::__construct()
 	 */
 	function test_should_throw_exception_with_invalid_type() {
 
@@ -29,7 +29,7 @@ class StatTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * @covers Khristophor\Wordpress_Stats\Common\Stat::__construct()
+	 * @covers WordpressStats\Common\Stat::__construct()
 	 */
 	function test_should_throw_exception_with_invalid_content_type() {
 
@@ -43,9 +43,9 @@ class StatTest extends WP_UnitTestCase {
 	 */
 
 	/**
-	 * @covers Khristophor\Wordpress_Stats\Common\Stat::build_args()
-	 * @covers Khristophor\Wordpress_Stats\Common\Stat::get_statistic()
-	 * @covers Khristophor\Wordpress_Stats\Common\Stat::set_value()
+	 * @covers WordpressStats\Common\Stat::build_args()
+	 * @covers WordpressStats\Common\Stat::get_statistic()
+	 * @covers WordpressStats\Common\Stat::set_value()
 	 */
 	function test_should_return_proper_count_statistic() {
 
@@ -73,9 +73,9 @@ class StatTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * @covers Khristophor\Wordpress_Stats\Common\Stat::build_args()
-	 * @covers Khristophor\Wordpress_Stats\Common\Stat::get_statistic()
-	 * @covers Khristophor\Wordpress_Stats\Common\Stat::set_value()
+	 * @covers WordpressStats\Common\Stat::build_args()
+	 * @covers WordpressStats\Common\Stat::get_statistic()
+	 * @covers WordpressStats\Common\Stat::set_value()
 	 */
 	function test_should_return_proper_popular_statistic() {
 

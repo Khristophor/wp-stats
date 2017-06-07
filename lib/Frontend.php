@@ -6,11 +6,11 @@
  * @link       https://github.com/khristophor/wordpress-stats
  * @since      1.0.0
  *
- * @package    Wordpress_Stats
- * @subpackage Wordpress_Stats/Frontend
+ * @package    WordpressStats
+ * @subpackage WordpressStats/Frontend
  */
 
-namespace Khristophor\Wordpress_Stats;
+namespace WordpressStats;
 
 /**
  * The public-facing functionality of the plugin.
@@ -18,8 +18,8 @@ namespace Khristophor\Wordpress_Stats;
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the dashboard-specific stylesheet and JavaScript.
  *
- * @package    Wordpress_Stats
- * @subpackage Wordpress_Stats/Frontend
+ * @package    WordpressStats
+ * @subpackage WordpressStats/Frontend
  * @author     Chris Wiseman <khristophor@github.io>
  */
 class Frontend {

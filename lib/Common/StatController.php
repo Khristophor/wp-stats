@@ -1,9 +1,9 @@
 <?php
 
-namespace Khristophor\Wordpress_Stats\Common;
+namespace WordpressStats\Common;
 
-use Khristophor\Wordpress_Stats\Plugin;
-use Khristophor\Wordpress_Stats\Common\Stat;
+use WordpressStats\Plugin;
+use WordpressStats\Common\Stat;
 
 /**
  * Custom REST routes to make data retrieval easier.

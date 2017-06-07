@@ -10,7 +10,7 @@
  * @subpackage WordpressStats/Admin
  */
 
-namespace Khristophor\Wordpress_Stats;
+namespace WordpressStats;
 
 /**
  * The dashboard-specific functionality of the plugin.

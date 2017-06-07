@@ -10,7 +10,7 @@
  * @subpackage WordpressStats/includes
  */
 
-namespace Khristophor\Wordpress_Stats;
+namespace WordpressStats;
 
 /**
  * Fired during plugin activation.

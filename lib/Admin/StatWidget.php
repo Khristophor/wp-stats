@@ -1,6 +1,6 @@
 <?php
 
-namespace Khristophor\Wordpress_Stats\Admin;
+namespace WordpressStats\Admin;
 
 /**
  * Custom widget to make use of Common\StatController endpoints

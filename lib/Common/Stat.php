@@ -1,6 +1,6 @@
 <?php
 
-namespace Khristophor\Wordpress_Stats\Common;
+namespace WordpressStats\Common;
 
 /**
  * Class to represent a single statistic.
