@@ -3,11 +3,11 @@
  * included in this file.
  */
 
-.widget.cw_wordpress_stats > p {
+.widget.cw_wordpress_stats > div > p {
     margin: 0 0 0.5em;
 }
 
-.widget.cw_wordpress_stats > p.aside {
+.widget.cw_wordpress_stats > div > p.aside {
     color: #767676;
     font-size: 0.65rem;
     font-style: italic;
