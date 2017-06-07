@@ -65,10 +65,19 @@ class StatWidget extends \WP_Widget {
 	 * @param array $instance values associated with the current instance of the widget
 	 */
 	public function widget( $args, $instance ) {
+		$allowed_tags = array(
+			'section' => array(
+				'id' => array(),
+				'class' => array(),
+			),
+			'h2' => array(),
+		);
+
 		$title = \apply_filters( 'widget_title', $instance['title'] );
-		echo $args['before_widget'] . $args['before_title'] . esc_attr( $title ) . $args['after_title'];
+		echo wp_kses( $args['before_widget'], $allowed_tags ) . wp_kses( $args['before_title'], $allowed_tags ) . esc_attr( $title ) . wp_kses( $args['after_title'], $allowed_tags );
 		$stats = $this->collect_stats(); ?>
 		<h5>Counts</h5>
+		<div class="stat-count">
 		<?php
 		foreach ( $stats as $stat ) {
 			if ( 'count' === $stat['type'] ) {
@@ -78,7 +87,9 @@ class StatWidget extends \WP_Widget {
 			}
 		}
 		?>
+		</div>
 		<h5>Most Popular</h5>
+		<div class="stat-popular">
 		<?php
 		foreach ( $stats as $stat ) {
 			if ( 'popular' === $stat['type'] ) {
@@ -89,7 +100,8 @@ class StatWidget extends \WP_Widget {
 			}
 		}
 		?>
-		<?php echo $args['after_widget'];
+		</div>
+		<?php echo wp_kses( $args['after_widget'], $allowed_tags );
 	}
 
 	/**

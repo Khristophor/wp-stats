@@ -80,7 +80,7 @@ class Stat {
 	public function __construct( array $content_type, string $label, string $type ) {
 
 		$valid_types = array( 'count', 'popular' );
-		if ( false === in_array( $type, $valid_types ) ) {
+		if ( false === in_array( $type, $valid_types, true ) ) {
 			throw new \Exception( 'Type must be one of: ' . join( ', ', $valid_types ) );
 		}
 
