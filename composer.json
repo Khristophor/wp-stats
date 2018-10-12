@@ -1,6 +1,6 @@
 {
-    "name": "vendor-name/wordpress-stats",
-    "description": "This is a short description of what the plugin does.",
+    "name": "khristophor/wordpress-stats",
+    "description": "Displays statistics about the WordPress install on the front end.",
     "type": "wordpress-plugin",
     "keywords": ["wordpress", "plugin"],
     "homepage": "https://github.com/khristophor/wordpress-stats/",
