@@ -43,7 +43,7 @@ class StatController extends \WP_REST_Controller {
 	* Register the routes for the objects of the controller.
 	*/
 	public function register_routes() {
-		$version = '1';
+		$version   = '1';
 		$namespace = 'cw/v' . $version;
 		\register_rest_route(
 			$namespace, '/stats', array(
@@ -64,11 +64,11 @@ class StatController extends \WP_REST_Controller {
 	*/
 	public function get_stats( $request ) {
 		try {
-			$post_count = new Stat( array( 'post' ), __( 'Posts', 'wordpress-stats' ), 'count' );
-			$page_count = new Stat( array( 'page' ), __( 'Pages', 'wordpress-stats' ), 'count' );
-			$author_count = new Stat( array( 'author' ), __( 'Authors', 'wordpress-stats' ), 'count' );
+			$post_count       = new Stat( array( 'post' ), __( 'Posts', 'wordpress-stats' ), 'count' );
+			$page_count       = new Stat( array( 'page' ), __( 'Pages', 'wordpress-stats' ), 'count' );
+			$author_count     = new Stat( array( 'author' ), __( 'Authors', 'wordpress-stats' ), 'count' );
 			$popular_category = new Stat( array( 'category' ), __( 'Category', 'wordpress-stats' ), 'popular' );
-			$popular_tag = new Stat( array( 'post_tag' ), __( 'Tag', 'wordpress-stats' ), 'popular' );
+			$popular_tag      = new Stat( array( 'post_tag' ), __( 'Tag', 'wordpress-stats' ), 'popular' );
 		} catch ( \Exception $e ) {
 			return new WP_Error( 'invalid-stat', sprintf( __( 'Error: %s', 'wordpress-stats' ), $e ) );
 		}

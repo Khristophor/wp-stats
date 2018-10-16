@@ -51,7 +51,9 @@ if ( ! defined( 'WPINC' ) ) {
  *
  * @since    1.0.0
  */
-\add_action( 'plugins_loaded', function () {
-	$plugin = new \WordpressStats\Plugin();
-	$plugin->run();
-} );
+\add_action(
+	'plugins_loaded', function () {
+		$plugin = new \WordpressStats\Plugin();
+		$plugin->run();
+	}
+);

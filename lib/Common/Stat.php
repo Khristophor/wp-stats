@@ -90,8 +90,8 @@ class Stat {
 		}
 
 		$this->content_type = $content_type;
-		$this->label = $label;
-		$this->type = $type;
+		$this->label        = $label;
+		$this->type         = $type;
 
 	}
 
@@ -105,20 +105,20 @@ class Stat {
 
 		if ( 'count' === $this->type ) {
 			return array(
-				'no_found_rows' => true,
+				'no_found_rows'          => true,
 				'update_post_meta_cache' => false,
 				'update_post_term_cache' => false,
-				'fields' => 'ids',
-				'posts_per_page' => 1000,
-				'post_type' => ( 1 === count( $this->content_type ) ? $this->content_type[0] : $this->content_type ),
-				'post_status' => 'publish',
+				'fields'                 => 'ids',
+				'posts_per_page'         => 1000,
+				'post_type'              => ( 1 === count( $this->content_type ) ? $this->content_type[0] : $this->content_type ),
+				'post_status'            => 'publish',
 			);
 		} elseif ( 'popular' === $this->type ) {
 			return array(
 				'taxonomy' => ( 1 === count( $this->content_type ) ? $this->content_type[0] : $this->content_type ),
-				'order' => 'DESC',
-				'orderby' => 'count',
-				'number' => 1,
+				'order'    => 'DESC',
+				'orderby'  => 'count',
+				'number'   => 1,
 			);
 		}
 
@@ -136,21 +136,21 @@ class Stat {
 	protected function set_value() {
 
 		if ( array( 'author' ) === $this->content_type ) {
-			$users = \count_users();
+			$users       = \count_users();
 			$this->value = $users['avail_roles']['author'];
 		} else {
 			$args = $this->build_args();
 
 			if ( 'count' === $this->type ) {
-				$query = new \WP_Query( $args );
+				$query       = new \WP_Query( $args );
 				$this->value = $query->post_count;
 			} elseif ( 'popular' === $this->type ) {
 				$term = \get_terms( $args );
 				if ( false === \is_wp_error( $term ) && is_array( $term ) ) {
 					// Set additional properties unique to popular statistic
 					$this->tagline = $term[0]->count . __( ' posts tagged.', 'wordpress-stats' );
-					$this->url = \get_term_link( $term[0] );
-					$this->value = $term[0]->name;
+					$this->url     = \get_term_link( $term[0] );
+					$this->value   = $term[0]->name;
 				}
 			}
 		}
@@ -173,11 +173,11 @@ class Stat {
 		}
 
 		return array(
-			'label' => $this->label,
+			'label'   => $this->label,
 			'tagline' => ( isset( $this->tagline ) ? $this->tagline : '' ),
-			'type' => $this->type,
-			'url' => ( isset( $this->url ) ? $this->url : '' ),
-			'value' => $this->value,
+			'type'    => $this->type,
+			'url'     => ( isset( $this->url ) ? $this->url : '' ),
+			'value'   => $this->value,
 		);
 
 	}

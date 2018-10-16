@@ -23,7 +23,7 @@ class StatWidget extends \WP_Widget {
 	public function __construct() {
 
 		$widget_options = array(
-			'classname' => 'cw_wordpress_stats',
+			'classname'   => 'cw_wordpress_stats',
 			'description' => __( 'This widget displays statistics about the WordPress site.', 'wordpress-stats' ),
 		);
 		parent::__construct( 'cw_wordpress_stats', __( 'WordPress Stats', 'wordpress-stats' ), $widget_options );
@@ -53,7 +53,8 @@ class StatWidget extends \WP_Widget {
 		<p>
 		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">Title:</label>
 		<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $title ); ?>" />
-		</p><?php
+		</p>
+		<?php
 	}
 
 	/**
@@ -67,15 +68,16 @@ class StatWidget extends \WP_Widget {
 	public function widget( $args, $instance ) {
 		$allowed_tags = array(
 			'section' => array(
-				'id' => array(),
+				'id'    => array(),
 				'class' => array(),
 			),
-			'h2' => array(),
+			'h2'      => array(),
 		);
 
 		$title = \apply_filters( 'widget_title', $instance['title'] );
 		echo wp_kses( $args['before_widget'], $allowed_tags ) . wp_kses( $args['before_title'], $allowed_tags ) . esc_attr( $title ) . wp_kses( $args['after_title'], $allowed_tags );
-		$stats = $this->collect_stats(); ?>
+		$stats = $this->collect_stats();
+		?>
 		<h5>Counts</h5>
 		<div class="stat-count">
 		<?php
@@ -101,7 +103,8 @@ class StatWidget extends \WP_Widget {
 		}
 		?>
 		</div>
-		<?php echo wp_kses( $args['after_widget'], $allowed_tags );
+		<?php
+		echo wp_kses( $args['after_widget'], $allowed_tags );
 	}
 
 	/**
