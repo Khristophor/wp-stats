@@ -46,7 +46,9 @@ class StatController extends \WP_REST_Controller {
 		$version   = '1';
 		$namespace = 'cw/v' . $version;
 		\register_rest_route(
-			$namespace, '/stats', array(
+			$namespace,
+			'/stats',
+			array(
 				array(
 					'methods'  => \WP_REST_Server::READABLE,
 					'callback' => array( $this, 'get_stats' ),

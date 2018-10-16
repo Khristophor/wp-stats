@@ -109,7 +109,7 @@ class Stat {
 				'update_post_meta_cache' => false,
 				'update_post_term_cache' => false,
 				'fields'                 => 'ids',
-				'posts_per_page'         => 1000,
+				'posts_per_page'         => 99,
 				'post_type'              => ( 1 === count( $this->content_type ) ? $this->content_type[0] : $this->content_type ),
 				'post_status'            => 'publish',
 			);
